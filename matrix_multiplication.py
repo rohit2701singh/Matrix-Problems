@@ -1,30 +1,18 @@
-first_matrix = []
-second_matrix = []
-
-is_finished = False
-while not is_finished:
-
+def get_matrix():
+    matrix = []
     while True:
-        row_items = input("MATRIX-1; enter row numbers separated with space (type 'end' when matrix complete): ").lower()
+        row_items = input("Enter row numbers separated by space (type 'end' when matrix complete): ").lower()
         if row_items == 'end':
-            print(f"shape of first matrix(row, column): {(len(first_matrix), len(first_matrix[0]))}")
-            break
+            return matrix
         else:
             try:
-                first_matrix.append(list(map(int, row_items.split(' '))))
+                matrix.append(list(map(int, row_items.split())))
             except ValueError:
-                print("\n**This row will not go in matrix. Please enter row data again. Do not put unnecessary space\n")
-    while True:
-        row_items = input("MATRIX-2; enter row numbers separated with space (type 'end' when matrix complete): ").lower()
-        if row_items == 'end':
-            print(f"shape of second matrix(row, column): {(len(second_matrix), len(second_matrix[0]))}")
-            break
-        else:
-            try:
-                second_matrix.append(list(map(int, row_items.split(' '))))
-            except ValueError:
-                print("\nThis row will not go in matrix. Please enter row data again. Do not put space at the end\n")
-    is_finished = True
+                print("\nInvalid input. Please enter row data again.\n")
+
+
+first_matrix = get_matrix()
+second_matrix = get_matrix()
 
 # first_matrix = [[1], [2], [3]]  # test example pair
 # second_matrix = [[1, 2, 3]]
@@ -36,6 +24,8 @@ while not is_finished:
 # second_matrix = [[4, 5, 6], [9, 6, 3], [7, 8, 9]]
 
 print(f"\nmatrix 1: {first_matrix} & matrix 2: {second_matrix}")
+print(f"Shape of first matrix (row, column): {(len(first_matrix), len(first_matrix[0]))}")
+print(f"Shape of second matrix (row, column): {(len(second_matrix), len(second_matrix[0]))}")
 
 first_matrix_rows = len(first_matrix)
 first_matrix_columns = len(first_matrix[0])
@@ -62,17 +52,17 @@ if first_matrix_columns == second_matrix_rows:
 else:
     print("matrix multiplication not possible")
 
-# analyse this and then code:
-# first_row = [[
-#         first_matrix[0][0] * second_matrix[0][0] +
-#         first_matrix[0][1] * second_matrix[1][0] +
-#         first_matrix[0][2] * second_matrix[2][0],
+    # analyse this and then code:
+    # first_row = [[
+    #         first_matrix[0][0] * second_matrix[0][0] +
+    #         first_matrix[0][1] * second_matrix[1][0] +
+    #         first_matrix[0][2] * second_matrix[2][0],
 
-#         first_matrix[0][0] * second_matrix[0][1] +
-#         first_matrix[0][1] * second_matrix[1][1] +
-#         first_matrix[0][2] * second_matrix[2][1],
+    #         first_matrix[0][0] * second_matrix[0][1] +
+    #         first_matrix[0][1] * second_matrix[1][1] +
+    #         first_matrix[0][2] * second_matrix[2][1],
 
-#         first_matrix[0][0] * second_matrix[0][2] +
-#         first_matrix[0][1] * second_matrix[1][2] +
-#         first_matrix[0][2] * second_matrix[2][2]
-#     ] ]
+    #         first_matrix[0][0] * second_matrix[0][2] +
+    #         first_matrix[0][1] * second_matrix[1][2] +
+    #         first_matrix[0][2] * second_matrix[2][2]
+    #     ] ]
